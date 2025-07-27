@@ -259,7 +259,8 @@ The decomposition tree confirmed and extended the SQL findings in a fascinating 
 
 
 
+ANALYSIS 3
 
-
+<img width="1514" height="878" alt="image" src="https://github.com/user-attachments/assets/4709ecc0-0505-46c4-aa86-27b1e83aca1b" />
 
 
