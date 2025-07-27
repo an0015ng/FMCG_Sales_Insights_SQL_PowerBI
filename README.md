@@ -1,4 +1,4 @@
-#FMCG 2022-2024 Daily Sales Insights | MySQL & Power BI
+### FMCG 2022-2024 Daily Sales Insights | MySQL & Power BI
 
 ## Executive Summary
 
@@ -22,7 +22,7 @@ This project analyzes **FMCG sales data from 2022-2024** to reveal actionable in
 - [Project Files & Access](#project-files--access)
 - [Conclusion](#conclusion)
 
-## Business Context & Project Challenge
+## Business Context & Project Workflow
 FMCG companies struggle with promotion ROI measurement, regional performance gaps, and inventory optimization across multiple channels. This analysis transforms raw sales data into strategic insights for marketing and operations teams.
 
 ### Integrated Analytical Approach
