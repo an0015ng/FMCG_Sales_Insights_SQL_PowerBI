@@ -35,3 +35,19 @@ This project leverages **MySQL for data foundation** and **Power BI for strategi
 
 This integrated approach ensures robust data integrity while delivering executive-ready visualizations for immediate business action.
 
+## Dataset Overview
+
+**Source**: [Kaggle - FMCG Daily Sales Data 2022-2024](https://www.kaggle.com/datasets/beatafaron/fmcg-daily-sales-data-to-2022-2024/data?select=FMCG_2022_2024.csv)
+
+<img width="1080" height="161" alt="image" src="https://github.com/user-attachments/assets/d3bd76dc-a647-4810-bf92-e71d3bf65370" />
+
+**Key Statistics**: 3-year timespan (2022-2024) | 170,000+ daily transactions | Multi-dimensional product hierarchy | 3 sales channels | 3 regional markets
+
+This synthetic dataset simulates real-world FMCG sales scenarios with comprehensive business dimensions:
+
+**Product Hierarchy**: SKU → Brand → Segment → Category  
+**Sales Channels**: Retail, Discount, E-commerce  
+**Geographic Coverage**: Central, North, and South regions (Poland)  
+**Key Metrics**: Daily sales quantities, unit prices, promotion flags, stock levels, delivery lead times
+
+
