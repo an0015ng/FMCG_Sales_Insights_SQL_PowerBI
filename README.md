@@ -69,6 +69,84 @@ WHERE price_unit IS NULL or TRIM(price_unit) = '';
 ```
 
 Below is the output:
+
 <img width="198" height="134" alt="image" src="https://github.com/user-attachments/assets/32945315-ae88-43ab-8d57-ed598554f36a" />
+
+**Result**: `0` - It means no missing price data.
+
+The same query was applied to date and sku columns, and the results were 0 for both queries. There was no NULL or missing values in the dataset.
+
+### b. Duplicate Records Detection
+
+```sql
+-- Identify potential duplicates across key business dimensions
+SELECT date, sku, channel, region, count()
+FROM fmcg_2022_2024
+GROUP BY date, sku, channel, region
+HAVING count() > 1;
+```
+
+Below is the output: 
+
+<img width="538" height="140" alt="image" src="https://github.com/user-attachments/assets/dfdaeea1-349e-406f-ac3d-815552f5121b" />
+
+No results are shown. It means there are no duplicated rows across the dataset.
+
+### c. Unreasonable Values Validation
+
+```sql
+-- Scan for negative price and having a value of other than 0 or 1 on promotion_flag
+SELECT *
+FROM fmcg_2022_2024
+WHERE price_unit < 0
+OR promotion_flag NOT IN ('0', '1');
+```
+Below is the output:
+
+<img width="1764" height="132" alt="image" src="https://github.com/user-attachments/assets/62d74557-42a3-4d0d-ab80-908686c59314" />
+
+No results are shown. There are no unreasonable values across the dataset.
+
+### d. Data Type Optimization
+
+```sql
+-- Check current data types
+DESCRIBE fmcg_2022_2024;
+```
+Below is the output:
+
+<img width="610" height="246" alt="image" src="https://github.com/user-attachments/assets/fa702f97-059a-45e2-ad7b-fbb4cc0f75c5" />
+
+It shows that the 'date' column is stored as `text` instead pf the proper `date` column.
+
+So, I converted the dates to proper format:
+
+```sql
+-- Convert text dates to proper date format
+UPDATE fmcg_2022_2024
+SET date = str_to_date(date, '%Y-%m-%d')
+WHERE str_to_date(date, '%Y-%m-%d') IS NOT NULL;
+
+-- Alter column to DATE data type
+ALTER TABLE fmcg_2022_2024
+MODIFY date DATE;
+```
+
+Below is the output:
+
+<img width="602" height="242" alt="image" src="https://github.com/user-attachments/assets/d1ffb716-781b-49f0-8ff2-547e760981fb" />
+
+It is obvious that the data type of 'date' has been changed.
+
+### Data Quality Conclusion
+1. **Zero NULL values** in critical business columns  
+2. **No duplicate transactions** across key dimensions  
+3. **All values within business logic** parameters  
+4. **Optimized data types** for efficient analysis  
+
+The dataset is now clean and ready for further analysis.
+
+
+
 
 
