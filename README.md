@@ -61,10 +61,12 @@ Before conducting business analysis, comprehensive data quality validation ensur
 
 **Key Columns Validation**: Price, Date, and SKU integrity check
 
+```sql
 -- Check for NULL or empty price values
 SELECT count(*)
 FROM fmcg_2022_2024
 WHERE price_unit IS NULL or TRIM(price_unit) = '';
+```
 
 Below is the output:
 <img width="198" height="134" alt="image" src="https://github.com/user-attachments/assets/32945315-ae88-43ab-8d57-ed598554f36a" />
