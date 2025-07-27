@@ -252,16 +252,6 @@ The image below shows the decomposition tree drilling down **Discount -> PL-Cent
 
 The decomposition tree confirmed and extended the SQL findings in a fascinating way. Not only were the channel-region totals consistent at ~420,000 units, but **the ranking of brands and SKUs remained remarkably similar across all channel-region combinations**. This means that SnBrand2 (identifie Retail-North, E-commerce-South, and Discount-Central equally, while SN-010 consistently ranked as the top SKU regardless of channel or region.
 
-### Product Hierarchy Consistency Analysis
-
-The decomposition tree revealed that the consistent performance extended deep into the product hierarchy. When drilling down from any channel-region combination:
-
-- **Brand rankings remained stable**: SnBrand2 maintained its top position across all channel-region combinations
-- **SKU performance patterns replicated**: SN-010 emerged as the leading SKU across all markets, maintaining its relative position consistently
-- **Category distribution stayed uniform**: No significant category preferences emerged by channel or region
-
-This level of consistency across all business dimensions was unexpected and indicated either highly effective centralized demand planning or a remarkably homogeneous market structure.
-
 ### Business Insights & Recommendations
 - **Competitive Landscape Stability**: The consistent brand and SKU rankings across all combinations suggest a stable competitive environment with limited regional competitive variations.
 - **Operational Efficiency Opportunity**: Since all channel-region combinations perform identically, inventory allocation can be simplified using uniform distribution ratios rather than complex regional forecasting models.
