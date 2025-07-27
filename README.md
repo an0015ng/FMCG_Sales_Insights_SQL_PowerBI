@@ -1,4 +1,4 @@
-### FMCG 2022-2024 Daily Sales Insights | MySQL & Power BI
+# FMCG 2022-2024 Daily Sales Insights | MySQL & Power BI
 
 ## Executive Summary
 
@@ -39,6 +39,8 @@ This integrated approach ensures robust data integrity while delivering executiv
 
 **Source**: [Kaggle - FMCG Daily Sales Data 2022-2024](https://www.kaggle.com/datasets/beatafaron/fmcg-daily-sales-data-to-2022-2024/data?select=FMCG_2022_2024.csv)
 
+Below is a screenshot of how the raw dataset looks like.
+
 <img width="1080" height="161" alt="image" src="https://github.com/user-attachments/assets/d3bd76dc-a647-4810-bf92-e71d3bf65370" />
 
 **Key Statistics**: 3-year timespan (2022-2024) | 170,000+ daily transactions | Multi-dimensional product hierarchy | 3 sales channels | 3 regional markets
@@ -49,5 +51,22 @@ This synthetic dataset simulates real-world FMCG sales scenarios with comprehens
 **Sales Channels**: Retail, Discount, E-commerce  
 **Geographic Coverage**: Central, North, and South regions (Poland)  
 **Key Metrics**: Daily sales quantities, unit prices, promotion flags, stock levels, delivery lead times
+
+
+## Data Quality & Reliability
+
+Before conducting business analysis, comprehensive data quality validation ensures reliable insights. This audit covers NULL values, duplicates, unreasonable entries, and proper data types.
+
+### a. NULL Values Assessment
+
+**Key Columns Validation**: Price, Date, and SKU integrity check
+
+-- Check for NULL or empty price values
+SELECT count(*)
+FROM fmcg_2022_2024
+WHERE price_unit IS NULL or TRIM(price_unit) = '';
+
+Below is the output:
+<img width="198" height="134" alt="image" src="https://github.com/user-attachments/assets/32945315-ae88-43ab-8d57-ed598554f36a" />
 
 
