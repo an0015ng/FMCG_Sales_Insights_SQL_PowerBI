@@ -217,6 +217,59 @@ The bubble chart visually confirmed the SQL findings - the three largest bubbles
 - **Q4 Trend Concern**: The declining Q4 performance in 2023-2024 (contrasting with 2022's growth) indicates potential market saturation or competitive pressure. This warrants investigation into promotional strategies or product refresh cycles.
 - **SKU Rationalization Opportunity**: Bottom-performing SKUs like the MI series may require strategic review - either through enhanced marketing, price adjustments, or potential discontinuation to optimize inventory costs.
 
+## Analysis 2: Regional and Category Performance
+
+### Business Question
+Understanding performance variations across sales channels and geographic regions is essential for resource allocation, inventory distribution, and channel strategy optimization. I analyzed sales performance by channel-region combinations and product hierarchy to identify potential market opportunities and operational efficiencies.
+
+### Channel and Regional Sales Analysis
+
+I examined sales distribution across all channel-region combinations to identify high-performing markets and potential geographic expansion opportunities.
+
+```sql
+-- Channel and regional performance analysis
+SELECT channel, region, SUM(units_sold) as total_units_sold
+FROM fmcg_2022_2024
+GROUP BY channel, region
+ORDER BY total_units_sold DESC;
+```
+
+Below is the output:
+
+<img width="526" height="338" alt="image" src="https://github.com/user-attachments/assets/3b2efa5a-c8a5-4a6a-8974-4cf94fe0df97" />
+
+The SQL results revealed a striking pattern. Across all channels and regions, the sales volumes were remarkably similar at around 420,000 units each. This uniformity was initially surprising, as most FMCG markets typically show significant regional or channel variations.
+
+**Power BI Enhancement**: I created a decomposition tree visualization starting with total units sold at the root, then drilling down through channel, region, brand, and finally SKU levels. This interactive hierarchy allowed me to explore the underlying drivers of performance across different business dimensions.
+
+The image below shows the decomposition tree drilling down E-commerce -> PL-South -> SnBrand2:
+
+<img width="1080" height="779" alt="image" src="https://github.com/user-attachments/assets/dc19d8a3-656c-48aa-8e53-4f169dbc4d02" />
+
+The image below shows the decomposition tree drilling down Discount -> PL-Central -> SnBrand2:
+
+<img width="1262" height="924" alt="image" src="https://github.com/user-attachments/assets/8ba03f41-b9a7-4bc6-9aee-bcd29bdcab6e" />
+
+The decomposition tree confirmed and extended the SQL findings in a fascinating way. Not only were the channel-region totals consistent at ~420,000 units, but **the ranking of brands and SKUs remained remarkably similar across all channel-region combinations**. This means that SnBrand2 (identifie Retail-North, E-commerce-South, and Discount-Central equally, while SN-010 consistently ranked as the top SKU regardless of channel or region.
+
+### Product Hierarchy Consistency Analysis
+
+The decomposition tree revealed that the consistent performance extended deep into the product hierarchy. When drilling down from any channel-region combination:
+
+- **Brand rankings remained stable**: SnBrand2 maintained its top position across all channel-region combinations
+- **SKU performance patterns replicated**: SN-010 emerged as the leading SKU across all markets, maintaining its relative position consistently
+- **Category distribution stayed uniform**: No significant category preferences emerged by channel or region
+
+This level of consistency across all business dimensions was unexpected and indicated either highly effective centralized demand planning or a remarkably homogeneous market structure.
+
+### Business Insights & Recommendations
+- **Competitive Landscape Stability**: The consistent brand and SKU rankings across all combinations suggest a stable competitive environment with limited regional competitive variations.
+- **Operational Efficiency Opportunity**: Since all channel-region combinations perform identically, inventory allocation can be simplified using uniform distribution ratios rather than complex regional forecasting models.
+- **Data Context Note**: It's important to note that this analysis is based on a simulated dataset designed to replicate real-world FMCG scenarios. The highly uniform performance patterns across all dimensions may be a result of the data generation methodology, where variables were intentionally balanced to create consistent distributions across channels and regions.
+
+
+
+
 
 
 
