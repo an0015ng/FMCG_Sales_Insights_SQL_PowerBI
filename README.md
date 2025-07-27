@@ -242,11 +242,11 @@ The SQL results revealed a striking pattern. Across all channels and regions, th
 
 **Power BI Enhancement**: I created a decomposition tree visualization starting with total units sold at the root, then drilling down through channel, region, brand, and finally SKU levels. This interactive hierarchy allowed me to explore the underlying drivers of performance across different business dimensions.
 
-The image below shows the decomposition tree drilling down E-commerce -> PL-South -> SnBrand2:
+The image below shows the decomposition tree drilling down **E-commerce -> PL-South -> SnBrand2**:
 
 <img width="1080" height="779" alt="image" src="https://github.com/user-attachments/assets/dc19d8a3-656c-48aa-8e53-4f169dbc4d02" />
 
-The image below shows the decomposition tree drilling down Discount -> PL-Central -> SnBrand2:
+The image below shows the decomposition tree drilling down **Discount -> PL-Central -> SnBrand2**:
 
 <img width="1262" height="924" alt="image" src="https://github.com/user-attachments/assets/8ba03f41-b9a7-4bc6-9aee-bcd29bdcab6e" />
 
