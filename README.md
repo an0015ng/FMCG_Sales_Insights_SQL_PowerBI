@@ -448,7 +448,7 @@ Below is the screenshot of the dashboard:
 
 ## Skills Demonstrated
 
-This project showcases advanced proficiency across multiple data analysis tools, demonstrating both foundational and sophisticated techniques that reflect senior-level analytical capabilities.
+This project showcases advanced proficiency across multiple data analysis tools, demonstrating both foundational and sophisticated techniques that reflect mid-level analytical capabilities.
 
 ### SQL Skills Demonstrated
 
@@ -461,8 +461,6 @@ My SQL implementation reveals strong database programming abilities with emphasi
 - **Advanced Aggregations**: SUM(), COUNT(), AVG() with GROUP BY and conditional logic for business metrics
 - **Data Quality Auditing**: Comprehensive NULL checks, duplicate detection, and data validation queries
 - **Database Administration**: ALTER TABLE, MODIFY for data type optimization and schema management
-- **Complex Conditional Logic**: CASE statements and conditional aggregations for business rule implementation
-- **Performance Optimization**: Efficient query structuring with proper indexing considerations
 
 ### Power BI Skills Demonstrated
 
@@ -471,10 +469,8 @@ My Power BI implementation shows mastery of both technical features and business
 **Visualization & Analytics:**
 - **Advanced Custom Visuals**: Decomposition trees, scatter plots, bubble charts for multi-dimensional analysis
 - **Interactive Dashboard Design**: Synchronized slicers, cross-filtering, and unified user experience
-- **Statistical Integration**: Analytics pane forecasting and trend analysis capabilities
 - **Mobile-Responsive Design**: Adaptive layouts for executive accessibility
 - **DAX Development**: Custom measures for promotional lift calculations and business KPIs
-- **Data Modeling**: Relationship management between multiple CSV imports and data sources
 - **Executive Reporting**: KPI cards, conditional formatting, and business-focused visualizations
 
 ### Python Integration Skills
@@ -487,9 +483,34 @@ My Python implementation within Power BI demonstrates advanced statistical analy
 - **Custom Visualizations**: Box plot creation for distribution analysis that wasn't available in native Power BI
 - **Data Science Integration**: Bridging traditional BI tools with statistical programming for comprehensive analysis
 
+## Project Files & Access
 
+All relevant files are uploaded to this repository and readily accessible for review and download.
 
+### Core Project Files
 
+**Raw Dataset**
+- [FMCG_2022_2024.csv](https://github.com/an0015ng/FMCG_Sales_Insights_SQL_PowerBI/blob/main/FMCG_2022_2024.csv) - Original FMCG sales dataset with 170,000+ daily transactions (2022-2024)
 
+**SQL Analysis Code**
+- [FMCG Daily Sales Analysis.sql](https://github.com/an0015ng/FMCG_Sales_Insights_SQL_PowerBI/blob/main/FMCG%20Daily%20Sales%20Analysis.sql) - Complete MySQL analysis code including data quality audits, seasonal analysis, promotional effectiveness, and RFM calculations
 
+**Processed Data Files**
+- [rfm analysis from sql.csv](https://github.com/an0015ng/FMCG_Sales_Insights_SQL_PowerBI/blob/main/rfm%20analysis%20from%20sql.csv) - Processed RFM analysis results exported from SQL for Power BI visualization (Analysis 4)
+
+**Interactive Dashboard**
+- [FMCG_Sales_BI.pbix](https://github.com/an0015ng/FMCG_Sales_Insights_SQL_PowerBI/blob/main/FMCG_Sales_BI.pbix) - Power BI dashboard file containing all interactive visualizations and integrated analysis
+
+### How to Use These Files
+
+1. **Download the raw dataset** to replicate the SQL analysis in your own MySQL environment
+2. **Run the SQL code** to reproduce all four analyses and validate the findings
+3. **Import the processed CSV files** into Power BI to recreate the dashboard visualizations
+4. **Open the .pbix file** in Power BI Desktop to explore the complete interactive dashboard
+
+All files are organized to support both technical reviewers wanting to examine the code and business stakeholders interested in the analytical insights and visualizations.
+
+## Conclusion
+
+This portfolio project exemplifies my modern analytical thinking through the integrated SQL-to-Power BI workflow I developed, demonstrating my proficiency in data quality assurance, statistical analysis, multi-dimensional business intelligence, and executive presentation. My validation of findings across multiple analytical frameworks—where RFM champions align with volume-based rankings—illustrates the robustness of systematic analytical approaches I employ. This comprehensive methodology I created showcases the end-to-end capabilities required for data analyst positions: transforming business questions into technical analyses, validating insights through multiple lenses, and delivering actionable recommendations through compelling visualizations.
 
