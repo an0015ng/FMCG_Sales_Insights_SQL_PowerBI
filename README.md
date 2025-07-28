@@ -259,8 +259,95 @@ The decomposition tree confirmed and extended the SQL findings in a fascinating 
 
 
 
-ANALYSIS 3
+## Analysis 3: Promotion Effectiveness
+
+### Business Question
+Understanding the true impact of promotional campaigns on sales performance is critical for marketing budget allocation and campaign optimization. I analyzed promotional effectiveness across all SKUs to determine whether promotions genuinely drive sales growth and identify the underlying drivers of promotional success.
+
+### Initial Promotion Impact Assessment
+
+I began by examining the relationship between promotional activities and total sales volume to establish a baseline understanding of promotional effectiveness.
+
+```sql
+-- Overview promotion impact analysis
+SELECT sku, promotion_flag, SUM(units_sold) as total_units_sold
+FROM fmcg_2022_2024
+GROUP BY sku, promotion_flag
+ORDER BY sku ASC;
+```
+
+Below is the output (partial data shown, promotion_flag of 0 indicates no promotion and 1 indicates having promotion):
+
+<img width="500" height="436" alt="image" src="https://github.com/user-attachments/assets/d91095c7-4350-4da0-baed-94fa93fc6966" />
+
+At first glance, the SQL results seemed counterintuitive. It appeared that promotions did not boost sales but actually decreased sale volume. However, I recognized that this was not a good comparison because it didn't account for the different number of days each SKU was promoted versus non-promoted.
+
+### Normalized Daily Sales Analysis
+
+I refined the analysis by calculating sales per day to account for the varying promotional periods across different SKUs.
+
+```sql
+-- Normalized promotional impact analysis
+WITH promotion_sales AS (
+SELECT sku, promotion_flag, SUM(units_sold) as total_units_sold, count(date) as number_of_days
+FROM fmcg_2022_2024
+GROUP BY sku, promotion_flag
+ORDER BY sku ASC
+)
+SELECT *,
+ROUND((total_units_sold / number_of_days), 2) as units_per_day
+FROM promotion_sales;
+```
+
+Below is the output (partial data shown): 
+
+<img width="838" height="432" alt="image" src="https://github.com/user-attachments/assets/5d6f59c3-e187-47bb-87e8-d00abed7ff0c" />
+
+The normalized results (units_per_day) revealed the true promotional impact. It was now clearly seen that on the days having promot all SKUs. This finding completely contradicted the initial misleading impression from the raw totals.
+
+### Price Impact Investigation
+
+To understand whether the sales increase was driven by price reductions, I examined the average unit prices during promotional and non-promotional periods. This time round, I focused on the top and bottom 3 SKUs found from Analysis 1.
+
+```sql
+WITH promotion_sales AS (
+	SELECT sku, promotion_flag, ROUND(AVG(price_unit), 2) as avg_price, SUM(units_sold) as total_units_sold, count(date) as number_of_days
+	FROM fmcg_2022_2024
+	GROUP BY sku, promotion_flag
+	ORDER BY sku ASC
+)
+SELECT *, 
+ROUND((total_units_sold / number_of_days), 2) as units_per_day
+FROM promotion_sales
+WHERE sku IN ('YO-029', 'YO-005', 'YO-012', 'MI-008', 'MI-011', 'MI-002')
+ORDER BY sku, total_units_sold ASC;
+```
+Below is the output:
+
+<img width="956" height="432" alt="image" src="https://github.com/user-attachments/assets/5f34d720-54ea-456d-8b7e-60e568ce3146" />
+
+The price analysis yielded a surprising finding. There was not much difference in the average price between the days of having or not having a promotion. On some days, the promotional price was even higher than normal price, yet the sales still doubled. This unexpected result suggested that the sales increase was not driven by price reductions. I proceeded to visualize this using Power BI and checked their statistical significance.
+
+**Power BI Enhancement**: Since Power BI doesn't have a built-in box plot visualization, I utilized **Python** within Power BI using **matplotlib and seaborn **modules to create comprehensive box plot distributions. This advanced integration allowed me to perform **statistical analysis** that wasn't possible with standard Power BI visuals alone.
+
+Below is the output: 
 
 <img width="1514" height="878" alt="image" src="https://github.com/user-attachments/assets/4709ecc0-0505-46c4-aa86-27b1e83aca1b" />
+
+The Power BI box plot clearly showed that having promotion resulted in significantly higher sales than no promotion, even when prices were similar across both conditions. The visualization made the distribution differences immediately apparent, with promotional days showing consistently higher median values and broader ranges than non-promotional periods.
+
+Additionally, I included statistical significance testing for each SKU and found that all of them had p<0.001. This means the data differences were not random, and the promotional effect was statistically significant across all products analyzed.
+
+### Business Insights & Recommendations
+
+- **Marketing Over Price**: The analysis proves that consumers are driven by attractive promotional marketing campaigns rather than actually comparing prices. This psychological effect represents a powerful lever for driving sales volume.
+- **Systematic Promotional Planning**: With statistical significance across all SKUs (p<0.001), promotional campaigns can be confidently scaled across the entire product portfolio.
+
+
+
+
+
+
+
 
 
