@@ -15,7 +15,7 @@ This project analyzes **FMCG sales data from 2022-2024** to reveal actionable in
 - [Analysis 1: Sales Trends & Seasonality](#analysis-1-sales-trends--seasonality)
 - [Analysis 2: Regional and Category Performance](#analysis-2-regional-and-category-performance)
 - [Analysis 3: Promotion Effectiveness](#analysis-3-promotion-effectiveness)
-- [Analysis 4: Outlier & Anomaly Detection](#analysis-4-outlier--anomaly-detection)
+- [Analysis 4: RFM Analysis – Customer Value Segmentation](#analysis-4-rfm-analysis--customer-value-segmentation)
 - [Interactive Exploration](#interactive-exploration)
 - [Key Insights & Business Recommendations](#key-insights--business-recommendations)
 - [Skills Demonstrated](#skills-demonstrated)
@@ -341,6 +341,82 @@ Additionally, I included statistical significance testing for each SKU and found
 
 - **Marketing Over Price**: The analysis proves that consumers are driven by attractive promotional marketing campaigns rather than actually comparing prices. This psychological effect represents a powerful lever for driving sales volume.
 - **Systematic Promotional Planning**: With statistical significance across all SKUs (p<0.001), promotional campaigns can be confidently scaled across the entire product portfolio.
+
+
+## Analysis 4: RFM Analysis – Customer Value Segmentation
+
+### Business Question
+Understanding the true value and engagement patterns of different products is essential for strategic inventory management, targeted promotions, and resource allocation. I applied RFM (Recency, Frequency, Monetary) analysis to segment SKUs by their behavioral characteristics, enabling data-driven decisions about which products deserve priority focus and investment.
+
+### RFM Metrics Calculation
+RFM analysis was applied to evaluate each SKU across three critical dimensions: how recently it was sold, how frequently it generates sales, and how much monetary value it contributes. Each SKU receives a score from 1-5 on each dimension, where 5 represents the best performance. Some SQL skills used were `DATEDIFF()` `NTILE()` and CTEs.
+
+```sql
+-- RFM Analysis for SKU segmentation
+WITH customer_rfm AS (
+SELECT
+sku,
+region,
+DATEDIFF(CURDATE(), MAX(date)) AS recency,
+COUNT(DISTINCT date) AS frequency,
+SUM(price_unit * units_sold) AS monetary
+FROM fmcg_2022_2024
+GROUP BY sku, region
+),
+rfm_scores AS (
+SELECT *,
+NTILE(5) OVER (ORDER BY recency DESC) AS r_score,
+NTILE(5) OVER (ORDER BY frequency) AS f_score,
+NTILE(5) OVER (ORDER BY monetary) AS m_score
+FROM customer_rfm
+)
+SELECT *,
+CONCAT(r_score, f_score, m_score) AS rfm_segment
+FROM rfm_scores;
+```
+Below is the output (partial data):
+
+<img width="1038" height="318" alt="image" src="https://github.com/user-attachments/assets/e8cf3863-2730-4492-9f8c-d23a41eed579" />
+
+The SQL results revealed an important data limitation. All SKUs showe every product's most recent sale occurred at the same cutoff date when the dataset ended. Since recency provided no meaningful differentiation between SKUs, I decided to focus the analysis on the remaining two dimensions: frequency and monetary value.
+
+### Frequency-Monetary Segmentation Analysis
+
+I exported the SQL results and imported them into Power BI to create a comprehensive visualization focusing on the two meaningful RFM dimensions.
+
+**Power BI Enhancement**: I created a scatter plot with frequency scores on the x-axis and monetary scores on the y-axis. Each SKU was plotted, allowing me to visualize the distribution of products across both performance dimensions simultaneously.
+
+Below is the output:
+
+<img width="612" height="400" alt="image" src="https://github.com/user-attachments/assets/a559ddfc-ca2b-4086-b5f2-3a3aa7443fc6" />
+
+The scatter plot showed that SKUs were distributed across all quadrants, but following the Pareto principle (80-20 rule), I drew reference lines at x = 4 and y = 4 to segment the top-performing SKUs from the rest. This created four distinct segments for strategic analysis:
+
+<img width="1438" height="946" alt="image" src="https://github.com/user-attachments/assets/33a86761-679b-455a-ab55-d582feac740d" />
+
+| | **High Monetary (4-5)** | **Low Monetary (1-3)** |
+|-------------------------|------------------------|----------------------|
+| **High Frequency (4-5)** | **Top Performer (Champions)** | **Frequent, Low Value** |
+| **Low Frequency (1-3)** | **Infrequent, High Value** | **Infrequent, Low Value** |
+
+### Champion SKU Identification
+
+The Power BI visualization clearly identified the top-performing SKUs that fell into the "Champions" quadrant (high frequency AND high monetary scores). These five SKUs emerged as the clear leaders:
+
+- **YO-029**
+- **RE-004** 
+- **YO-001**
+- **YO-014**
+- **RE-015**
+
+Remarkably, all five Champion SKUs were among the Top 10 performers identified in Analysis 1, validating the consistency of our multi-dimensional analytical approach. This convergence between volume-based rankings and RFM segmentation provides strong confidence in these products' strategic importance.
+
+### Business Insights & Recommendations
+- **Champion Investment Priority**: The five Champion SKUs (YO-029, RE-004, YO-001, YO-014, RE-015) should receive priority in inventory allocation, marketing spend, and promotional campaigns since they demonstrate both high sales frequency and strong revenue contribution.
+**Strategic Segment Management**:
+- **Frequent, Low Value**: These SKUs may benefit from cost reduction initiatives or bundling strategies to improve profitability while maintaining volume.
+- **Infrequent, High Value**: These products may represent niche opportunities that require specialized marketing approaches or premium positioning strategies.
+- **Infrequent, Low Value**: Consider discontinuation or price optimization to improve overall portfolio efficiency.
 
 
 
