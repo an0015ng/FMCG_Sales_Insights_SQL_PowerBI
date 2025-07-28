@@ -278,7 +278,7 @@ ORDER BY sku ASC;
 
 Below is the output (partial data shown, promotion_flag of `0` indicates no promotion and `1` indicates having promotion):
 
-<img width="500" height="436" alt="image" src="https://github.com/user-attachments/assets/d91095c7-4350-4da0-baed-94fa93fc6966" />
+<img width="1342" height="1008" alt="image" src="https://github.com/user-attachments/assets/bef3f250-bf56-4754-ad0a-afa189b35dac" />
 
 At first glance, the SQL results seemed counterintuitive. It appeared that promotions did not boost sales but actually decreased sale volume. However, I recognized that this was not a good comparison because it didn't account for the different number of days each SKU was promoted versus non-promoted.
 
@@ -300,8 +300,6 @@ FROM promotion_sales;
 ```
 
 Below is the output (partial data shown): 
-
-<img width="838" height="432" alt="image" src="https://github.com/user-attachments/assets/5d6f59c3-e187-47bb-87e8-d00abed7ff0c" />
 
 <img width="2026" height="1152" alt="image" src="https://github.com/user-attachments/assets/ad926f0e-faa5-4a3a-afdd-c3f02d888709" />
 
@@ -326,7 +324,7 @@ ORDER BY sku, total_units_sold ASC;
 ```
 Below is the output:
 
-<img width="956" height="432" alt="image" src="https://github.com/user-attachments/assets/5f34d720-54ea-456d-8b7e-60e568ce3146" />
+<img width="2138" height="1060" alt="image" src="https://github.com/user-attachments/assets/b494e862-6297-4926-9f7e-ca80fe5e3206" />
 
 The price analysis yielded a surprising finding. There was not much difference in the average price between the days of having or not having a promotion. On some days, the promotional price was even higher than normal price, yet the sales still doubled. This unexpected result suggested that the sales increase was not driven by price reductions. I proceeded to visualize this using Power BI and checked their statistical significance.
 
