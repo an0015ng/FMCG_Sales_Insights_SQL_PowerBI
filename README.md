@@ -88,7 +88,7 @@ HAVING count() > 1;
 
 Below is the output: 
 
-<img width="538" height="140" alt="image" src="https://github.com/user-attachments/assets/dfdaeea1-349e-406f-ac3d-815552f5121b" />
+<img width="1268" height="328" alt="image" src="https://github.com/user-attachments/assets/36073ca4-9baf-43d3-a87a-b4f19211c8a8" />
 
 No results are shown. It means there are no duplicated rows across the dataset.
 
@@ -105,7 +105,7 @@ Below is the output:
 
 <img width="1764" height="132" alt="image" src="https://github.com/user-attachments/assets/62d74557-42a3-4d0d-ab80-908686c59314" />
 
-No results are shown. There are no unreasonable values across the dataset.
+Again, no results are shown. There are no unreasonable values across the dataset.
 
 ### d. Data Type Optimization
 
@@ -113,9 +113,9 @@ No results are shown. There are no unreasonable values across the dataset.
 -- Check current data types
 DESCRIBE fmcg_2022_2024;
 ```
-Below is the output:
+Below is the output (partial data shown):
 
-<img width="610" height="246" alt="image" src="https://github.com/user-attachments/assets/fa702f97-059a-45e2-ad7b-fbb4cc0f75c5" />
+<img width="1472" height="646" alt="image" src="https://github.com/user-attachments/assets/e2d2c278-364e-4bf0-ac69-4cbb1bc9a528" />
 
 It shows that the 'date' column is stored as `text` instead of the proper `date` column.
 
@@ -134,7 +134,7 @@ MODIFY date DATE;
 
 Below is the output:
 
-<img width="602" height="242" alt="image" src="https://github.com/user-attachments/assets/d1ffb716-781b-49f0-8ff2-547e760981fb" />
+<img width="1472" height="648" alt="image" src="https://github.com/user-attachments/assets/d15c98d6-86dc-45b8-9419-3e665d334ae0" />
 
 It is obvious that the data type of 'date' has been changed.
 
@@ -167,12 +167,11 @@ Below is the output (partial data):
 
 <img width="424" height="722" alt="image" src="https://github.com/user-attachments/assets/4d46ef84-95a4-4967-a42b-a95cac7a6eb6" />
 
-
 The SQL results immediately revealed seasonal patterns. At first glance, 2022 January and February had worse sales at 4-figure volume, while 2023 and 2024 May-July periods showed the highest volume across all years.
 
 **Power BI Enhancement**: I created a line chart with months on the x-axis, total units sold on the y-axis, and separate lines for each year as the legend. This visualization confirmed the SQL findings and revealed additional insights that weren't immediately obvious from the raw data.
 
-<img width="798" height="571" alt="image" src="https://github.com/user-attachments/assets/ab031032-b894-49ca-9d23-8c52a9240273" />
+<img width="1816" height="1192" alt="image" src="https://github.com/user-attachments/assets/cd119183-4861-4c95-8160-d899e6f6ad5a" />
 
 The Power BI line chart showed a clear **mid-year sales peak between June-August** across all three years, validating the SQL observation about May-July being the strongest periods. However, the visualization uncovered an important trend difference: while 2022 sales continued trending upward from October-December, both 2023 and 2024 showed declining sales toward Q4.
 
@@ -207,7 +206,7 @@ The SQL analysis showed clear performance concentration. YO-029, YO-005, and YO-
 
 **Power BI Enhancement**: I created a bubble chart where each SKU is represented by a bubble, with total units sold on the x-axis, average price on the y-axis, and bubble size representing total revenue contribution. This multi-dimensional view provided richer context than the SQL rankings alone.
 
-<img width="887" height="583" alt="image" src="https://github.com/user-attachments/assets/8acc21d7-8a4f-421f-b06f-3778099fcdf6" />
+<img width="1814" height="1196" alt="image" src="https://github.com/user-attachments/assets/2f60b02f-81dc-4be0-b6ec-540de83f98a2" />
 
 The bubble chart visually confirmed the SQL findings - the three largest bubbles (representing highest revenue) appeared on the right side of the chart, corresponding to the top-performing SKUs identified in SQL. Conversely, the small bubbles clustered on the left side matched the bottom performers from the SQL analysis.
 
@@ -248,7 +247,7 @@ The image below shows the decomposition tree drilling down **E-commerce -> PL-So
 
 The image below shows the decomposition tree drilling down **Discount -> PL-Central -> SnBrand2**:
 
-<img width="1262" height="924" alt="image" src="https://github.com/user-attachments/assets/8ba03f41-b9a7-4bc6-9aee-bcd29bdcab6e" />
+<img width="1562" height="1226" alt="image" src="https://github.com/user-attachments/assets/8b8aa3c1-23ef-4950-ba31-04be0fbac9e1" />
 
 The decomposition tree confirmed and extended the SQL findings in a fascinating way. Not only were the channel-region totals consistent at ~420,000 units, but **the ranking of brands and SKUs remained remarkably similar across all channel-region combinations**. This means that SnBrand2 (identifie Retail-North, E-commerce-South, and Discount-Central equally, while SN-010 consistently ranked as the top SKU regardless of channel or region.
 
