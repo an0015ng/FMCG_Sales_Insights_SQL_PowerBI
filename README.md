@@ -17,7 +17,6 @@ This project analyzes **FMCG sales data from 2022-2024** to reveal actionable in
 - [Analysis 3: Promotion Effectiveness](#analysis-3-promotion-effectiveness)
 - [Analysis 4: RFM Analysis – Customer Value Segmentation](#analysis-4-rfm-analysis--customer-value-segmentation)
 - [Interactive Exploration](#interactive-exploration)
-- [Key Insights & Business Recommendations](#key-insights--business-recommendations)
 - [Skills Demonstrated](#skills-demonstrated)
 - [Project Files & Access](#project-files--access)
 - [Conclusion](#conclusion)
@@ -442,11 +441,51 @@ Below is the screenshot of the dashboard:
 - **SKU Selector**: Product-level drill-down capability connecting to the champion SKU findings from Analysis 4
 
 **Visual Analytics Components**: The dashboard integrates multiple chart types to tell the complete FMCG story:
-- **Sales Trend Line Chart as legend, directly visualizing the promotional impact findings from Analysis 3
+- **Sales Trend Line Chart**: Having promotional_flag as legend, directly visualizing the promotional impact findings from Analysis 3
 - **Channel Distribution Pie Chart**: Shows total sales volume breakdown by retail, e-commerce, and discount channels, extending the regional consistency insights from Analysis 2
 - **Stock Availability by Channel**: Bar chart displaying inventory levels across distribution channels for operational planning
 
 
+## Skills Demonstrated
+
+This project showcases advanced proficiency across multiple data analysis tools, demonstrating both foundational and sophisticated techniques that reflect senior-level analytical capabilities.
+
+### SQL Skills Demonstrated
+
+My SQL implementation reveals strong database programming abilities with emphasis on business logic implementation and comprehensive data quality assurance.
+
+**Core SQL Competencies:**
+- **Window Functions**: NTILE() for quintile scoring in RFM analysis, LAG() for time-series analysis and week-over-week comparisons
+- **Common Table Expressions (CTEs)**: Complex multi-level CTEs for RFM analysis and promotional impact calculations
+- **Date Functions**: YEAR(), MONTH(), DATEDIFF(), str_to_date() for temporal analysis and data type conversions
+- **Advanced Aggregations**: SUM(), COUNT(), AVG() with GROUP BY and conditional logic for business metrics
+- **Data Quality Auditing**: Comprehensive NULL checks, duplicate detection, and data validation queries
+- **Database Administration**: ALTER TABLE, MODIFY for data type optimization and schema management
+- **Complex Conditional Logic**: CASE statements and conditional aggregations for business rule implementation
+- **Performance Optimization**: Efficient query structuring with proper indexing considerations
+
+### Power BI Skills Demonstrated
+
+My Power BI implementation shows mastery of both technical features and business intelligence design principles.
+
+**Visualization & Analytics:**
+- **Advanced Custom Visuals**: Decomposition trees, scatter plots, bubble charts for multi-dimensional analysis
+- **Interactive Dashboard Design**: Synchronized slicers, cross-filtering, and unified user experience
+- **Statistical Integration**: Analytics pane forecasting and trend analysis capabilities
+- **Mobile-Responsive Design**: Adaptive layouts for executive accessibility
+- **DAX Development**: Custom measures for promotional lift calculations and business KPIs
+- **Data Modeling**: Relationship management between multiple CSV imports and data sources
+- **Executive Reporting**: KPI cards, conditional formatting, and business-focused visualizations
+
+### Python Integration Skills
+
+My Python implementation within Power BI demonstrates advanced statistical analysis capabilities beyond standard BI tools.
+
+**Statistical Analysis:**
+- **Library Integration**: matplotlib and seaborn for advanced statistical visualizations within Power BI environment
+- **Statistical Testing**: p-value calculations and significance testing for promotional effectiveness validation
+- **Custom Visualizations**: Box plot creation for distribution analysis that wasn't available in native Power BI
+- **Data Science Integration**: Bridging traditional BI tools with statistical programming for comprehensive analysis
 
 
 
