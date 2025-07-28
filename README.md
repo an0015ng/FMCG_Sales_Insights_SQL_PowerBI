@@ -276,7 +276,7 @@ GROUP BY sku, promotion_flag
 ORDER BY sku ASC;
 ```
 
-Below is the output (partial data shown, promotion_flag of 0 indicates no promotion and 1 indicates having promotion):
+Below is the output (partial data shown, promotion_flag of `0` indicates no promotion and `1` indicates having promotion):
 
 <img width="500" height="436" alt="image" src="https://github.com/user-attachments/assets/d91095c7-4350-4da0-baed-94fa93fc6966" />
 
@@ -303,7 +303,9 @@ Below is the output (partial data shown):
 
 <img width="838" height="432" alt="image" src="https://github.com/user-attachments/assets/5d6f59c3-e187-47bb-87e8-d00abed7ff0c" />
 
-The normalized results (units_per_day) revealed the true promotional impact. It was now clearly seen that on the days having promot all SKUs. This finding completely contradicted the initial misleading impression from the raw totals.
+<img width="2026" height="1152" alt="image" src="https://github.com/user-attachments/assets/ad926f0e-faa5-4a3a-afdd-c3f02d888709" />
+
+The normalized results `units_per_day` revealed the true promotional impact. It was now clearly seen that on the days having promot all SKUs. This finding completely contradicted the initial misleading impression from the raw totals.
 
 ### Price Impact Investigation
 
@@ -328,7 +330,7 @@ Below is the output:
 
 The price analysis yielded a surprising finding. There was not much difference in the average price between the days of having or not having a promotion. On some days, the promotional price was even higher than normal price, yet the sales still doubled. This unexpected result suggested that the sales increase was not driven by price reductions. I proceeded to visualize this using Power BI and checked their statistical significance.
 
-**Power BI Enhancement**: Since Power BI doesn't have a built-in box plot visualization, I utilized **Python** within Power BI using **matplotlib and seaborn **modules to create comprehensive box plot distributions. This advanced integration allowed me to perform **statistical analysis** that wasn't possible with standard Power BI visuals alone.
+**Power BI Enhancement**: Since Power BI doesn't have a built-in box plot visualization, I utilized **Python** within Power BI using **matplotlib and seaborn** modules to create comprehensive box plot distributions. This advanced integration allowed me to perform **statistical analysis** that wasn't possible with standard Power BI visuals alone.
 
 Below is the output: 
 
