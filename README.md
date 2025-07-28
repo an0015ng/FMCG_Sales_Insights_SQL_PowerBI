@@ -413,10 +413,38 @@ Remarkably, all five Champion SKUs were among the Top 10 performers identified i
 
 ### Business Insights & Recommendations
 - **Champion Investment Priority**: The five Champion SKUs (YO-029, RE-004, YO-001, YO-014, RE-015) should receive priority in inventory allocation, marketing spend, and promotional campaigns since they demonstrate both high sales frequency and strong revenue contribution.
+
 **Strategic Segment Management**:
 - **Frequent, Low Value**: These SKUs may benefit from cost reduction initiatives or bundling strategies to improve profitability while maintaining volume.
 - **Infrequent, High Value**: These products may represent niche opportunities that require specialized marketing approaches or premium positioning strategies.
 - **Infrequent, Low Value**: Consider discontinuation or price optimization to improve overall portfolio efficiency.
+
+## Interactive Exploration
+
+### Dashboard Purpose and Design
+
+The purpose of this dashboard is to transform the analytical insights from my SQL queries into an executive-ready, interactive business intelligence tool. Rather than viewing each analysis in isolation, stakeholders can now explore relationships between seasonal trends, regional performance, promotional effectiveness, and product hierarchy through unified filtering and cross-visual interactions.
+
+Below is the screenshot of the dashboard:
+
+<img width="1748" height="978" alt="image" src="https://github.com/user-attachments/assets/fa9d8313-7958-42ed-b9b2-a79d6868ac3c" />
+
+### Core Dashboard Elements
+
+**Executive Summary Cards**: I implemented three key performance indicator cards displaying the most critical business metrics:
+- **Total Sales ($)**: Real-time aggregation showing overall revenue performance 
+- **Total Sales Volume**: Units sold across all dimensions
+- **Top Performing SKU**: Dynamic identification of the champion product
+
+**Interactive Filter Controls**: I designed a comprehensive slicer system enabling dynamic exploration:
+- **Date Range Slicer**: Allows temporal analysis from 2022-2024, supporting the seasonal insights from Analysis 1
+- **Region Filter**: Geographic segmentation across PL-North, PL-Central, and PL-South regions
+- **SKU Selector**: Product-level drill-down capability connecting to the champion SKU findings from Analysis 4
+
+**Visual Analytics Components**: The dashboard integrates multiple chart types to tell the complete FMCG story:
+- **Sales Trend Line Chart as legend, directly visualizing the promotional impact findings from Analysis 3
+- **Channel Distribution Pie Chart**: Shows total sales volume breakdown by retail, e-commerce, and discount channels, extending the regional consistency insights from Analysis 2
+- **Stock Availability by Channel**: Bar chart displaying inventory levels across distribution channels for operational planning
 
 
 
